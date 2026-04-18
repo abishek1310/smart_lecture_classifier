@@ -1,0 +1,33 @@
+{
+  "total_samples": 7349,
+  "num_classes": 4,
+  "label_counts": {
+    "Background Context": 5284,
+    "Concept Definition": 854,
+    "Worked Example": 667,
+    "Exam Relevant": 544
+  },
+  "class_weights": {
+    "Background Context": 0.3477,
+    "Concept Definition": 2.1513,
+    "Worked Example": 2.7545,
+    "Exam Relevant": 3.3773
+  },
+  "sources": {
+    "MIT_OCW": 3136,
+    "YouTube": 4213
+  },
+  "label_map": {
+    "Background Context": 0,
+    "Concept Definition": 1,
+    "Worked Example": 2,
+    "Exam Relevant": 3
+  },
+  "courses": {
+    "Stanford_CS231n": 1137,
+    "MIT_6034_AI": 1409,
+    "Andrew_NG_CS229": 1523,
+    "MIT_LinearAlgebra": 1553,
+    "MIT_DeepLearning_2024": 1727
+  }
+}
