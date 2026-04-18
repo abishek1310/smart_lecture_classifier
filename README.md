@@ -1,8 +1,8 @@
 # Smart Lecture Segment Classifier
 
 **CS 6140 Machine Learning — Northeastern University, Spring 2026**  
-**Authors:** Abishek Udayakrishna Surya Narayanan, Varun Mandepudi 
-**Professor:** Ehsan Elhamifar  
+**Authors:** Abishek Udayakrishna Surya Narayanan, Varun Mandepudi  
+**Professor:** Ehsan Elhamifar
 
 ---
 
