@@ -192,6 +192,7 @@ for fold, (train_idx, val_idx) in enumerate(skf.split(X_tfidf_sc, labels)):
 
     #  Train XGBoost 
     sample_weights = np.array([xgb_weights[l] for l in labels[train_idx]])
+    xgb_device = "cuda" if torch.cuda.is_available() else "cpu"
     xgb = XGBClassifier(
         n_estimators=300,
         max_depth=6,
@@ -202,7 +203,7 @@ for fold, (train_idx, val_idx) in enumerate(skf.split(X_tfidf_sc, labels)):
         eval_metric="mlogloss",
         random_state=42,
         n_jobs=-1,
-        device="cuda"
+        device=xgb_device
     )
     xgb.fit(X_combined[train_idx], labels[train_idx], sample_weight=sample_weights)
     xgb_probs = xgb.predict_proba(X_combined[val_idx])
