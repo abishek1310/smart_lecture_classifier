@@ -16,9 +16,10 @@ warnings.filterwarnings("ignore")
 
 # CONFIG
 
-EMBEDDINGS_DIR = r"E:\ML_project\embeddings"
-DATASET_PATH   = r"E:\ML_project\dataset\lecture_dataset.json"
-RESULTS_DIR    = r"E:\ML_project\results"
+BASE_DIR       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EMBEDDINGS_DIR = os.path.join(BASE_DIR, "embeddings")
+DATASET_PATH   = os.path.join(BASE_DIR, "Dataset", "lecture_dataset.json")
+RESULTS_DIR    = os.path.join(BASE_DIR, "results")
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 LABEL_NAMES = ["Background Context", "Concept Definition", "Worked Example", "Exam Relevant"]

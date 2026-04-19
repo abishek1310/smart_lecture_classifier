@@ -1,5 +1,6 @@
 ﻿import json, os, random
-data = json.load(open('E:/ML_project/dataset/lecture_dataset.json'))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+data = json.load(open(os.path.join(BASE_DIR, "Dataset", "lecture_dataset.json")))
 samples = random.sample([s for s in data if s.get('has_image')], 5)
 for s in samples:
     frame_file = os.path.basename(s['frame_path'])

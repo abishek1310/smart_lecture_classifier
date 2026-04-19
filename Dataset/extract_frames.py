@@ -1,4 +1,5 @@
 import os
+import shutil
 import json
 import subprocess
 import time
@@ -7,9 +8,10 @@ from collections import defaultdict
 
 # CONFIG
 
-DATASET_PATH  = r"E:\ML_project\dataset\lecture_dataset.json"
-FRAMES_DIR    = r"E:\ML_project\frames"
-NODE_PATH     = r"C:\Program Files\nodejs\node.exe"
+BASE_DIR      = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATASET_PATH  = os.path.join(BASE_DIR, "Dataset", "lecture_dataset.json")
+FRAMES_DIR    = os.path.join(BASE_DIR, "frames")
+NODE_PATH     = shutil.which("node") or r"C:\Program Files\nodejs\node.exe"
 YTDLP         = "python -m yt_dlp"
 os.makedirs(FRAMES_DIR, exist_ok=True)
 

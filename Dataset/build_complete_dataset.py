@@ -2,14 +2,16 @@ import os
 import re
 import json
 import glob
+import shutil
 import random
 from collections import Counter
 from youtube_transcript_api import YouTubeTranscriptApi
 
 # CONFIG
-MIT_SRT_DIR = r"E:\ML_project\Dataset\static_resources"
-MIT_VTT_DIR = r"E:\ML_project\Dataset\static_resources_fall_2024"
-OUTPUT_DIR  = r"E:\ML_project\dataset"
+BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
+MIT_SRT_DIR = os.path.join(BASE_DIR, "static_resources")
+MIT_VTT_DIR = os.path.join(BASE_DIR, "static_resources_fall_2024")
+OUTPUT_DIR  = os.path.join(os.path.dirname(BASE_DIR), "dataset")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 dataset_path  = os.path.join(OUTPUT_DIR, "lecture_dataset.json")

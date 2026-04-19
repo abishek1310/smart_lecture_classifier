@@ -1,14 +1,16 @@
 import os
+import shutil
 import json
 import subprocess
 import time
 import random
 from collections import defaultdict
 
-DATASET_PATH = r"E:\ML_project\dataset\lecture_dataset.json"
-FRAMES_DIR   = r"E:\ML_project\frames"
-NODE_PATH    = r"C:\Program Files\nodejs\node.exe"
-COOKIES_PATH = r"E:\ML_project\cookies.txt"
+BASE_DIR     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATASET_PATH = os.path.join(BASE_DIR, "Dataset", "lecture_dataset.json")
+FRAMES_DIR   = os.path.join(BASE_DIR, "frames")
+NODE_PATH    = shutil.which("node") or r"C:\Program Files\nodejs\node.exe"
+COOKIES_PATH = os.path.join(BASE_DIR, "cookies.txt")
 os.makedirs(FRAMES_DIR, exist_ok=True)
 
 with open(DATASET_PATH, "r", encoding="utf-8") as f:

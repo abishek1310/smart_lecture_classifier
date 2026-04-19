@@ -2,8 +2,8 @@
 import os
 from collections import Counter
 
-data = json.load(open('E:/ML_project/dataset/lecture_dataset.json'))
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+data = json.load(open(os.path.join(BASE_DIR, "Dataset", "lecture_dataset.json")))
 print('DATASET VERIFICATION')
 
 print(f'Total samples         : {len(data)}')

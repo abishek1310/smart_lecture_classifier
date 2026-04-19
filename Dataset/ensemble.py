@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import shutil
 import json
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold
@@ -20,10 +21,11 @@ warnings.filterwarnings("ignore")
 
 # CONFIG
 
-EMBEDDINGS_DIR = r"E:\ML_project\embeddings"
-DATASET_PATH   = r"E:\ML_project\dataset\lecture_dataset.json"
-RESULTS_DIR    = r"E:\ML_project\results"
-MODELS_DIR     = r"E:\ML_project\models"
+BASE_DIR       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EMBEDDINGS_DIR = os.path.join(BASE_DIR, "embeddings")
+DATASET_PATH   = os.path.join(BASE_DIR, "Dataset", "lecture_dataset.json")
+RESULTS_DIR    = os.path.join(BASE_DIR, "results")
+MODELS_DIR     = os.path.join(BASE_DIR, "models")
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 DEVICE      = torch.device("cuda" if torch.cuda.is_available() else "cpu")

@@ -10,8 +10,9 @@ import open_clip
 
 # CONFIG
 
-DATASET_PATH   = r"E:\ML_project\dataset\lecture_dataset.json"
-EMBEDDINGS_DIR = r"E:\ML_project\embeddings"
+BASE_DIR       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATASET_PATH   = os.path.join(BASE_DIR, "Dataset", "lecture_dataset.json")
+EMBEDDINGS_DIR = os.path.join(BASE_DIR, "embeddings")
 os.makedirs(EMBEDDINGS_DIR, exist_ok=True)
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
