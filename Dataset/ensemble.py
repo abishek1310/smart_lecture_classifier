@@ -269,6 +269,12 @@ print("-" * 62)
 
 # SAVE
 
+try:
+    ens_auc = float(roc_auc_score(labels, ensemble_probs, multi_class="ovr", average="macro"))
+    print(f"Ensemble AUC-ROC: {ens_auc:.4f}")
+except Exception as e:
+    ens_auc = None
+
 results = {
     "model":            "Ensemble LR+XGB+DNN",
     "lr_weight":        LR_WEIGHT,
@@ -281,6 +287,7 @@ results = {
     "fold_accuracies":  [float(a) for a in fold_accs],
     "fold_f1s":         [float(f) for f in fold_f1s],
     "confusion_matrix": cm.tolist(),
+    "auc_roc":          ens_auc,
 }
 with open(os.path.join(RESULTS_DIR, "ensemble_xgb_results.json"), "w") as f:
     json.dump(results, f, indent=2)

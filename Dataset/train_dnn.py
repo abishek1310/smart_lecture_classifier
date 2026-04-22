@@ -416,6 +416,13 @@ for i, name in enumerate(LABEL_NAMES):
 
 # SAVE ALL RESULTS
 
+try:
+    abl_auc = float(roc_auc_score(labels, abl_probs, multi_class="ovr", average="macro"))
+    print(f"Text Only DNN AUC-ROC: {abl_auc:.4f}")
+except Exception as e:
+    abl_auc = None
+    print(f"AUC-ROC could not be computed: {e}")
+
 results = {
     "multimodal_dnn": {
         "mean_accuracy":    float(np.mean(fold_accs)),
@@ -425,12 +432,14 @@ results = {
         "fold_accuracies":  [float(a) for a in fold_accs],
         "fold_f1s":         [float(f) for f in fold_f1s],
         "confusion_matrix": cm.tolist(),
+        "auc_roc":          float(roc_auc_score(labels, all_probs, multi_class="ovr", average="macro")),
     },
     "ablation_text_only": {
         "mean_accuracy": float(np.mean(abl_accs)),
         "std_accuracy":  float(np.std(abl_accs)),
         "mean_macro_f1": float(np.mean(abl_f1s)),
         "std_macro_f1":  float(np.std(abl_f1s)),
+        "auc_roc":       abl_auc,
     },
     "image_contribution": float(image_contribution),
 }
